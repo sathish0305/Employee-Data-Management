@@ -1,0 +1,11 @@
+.index-page{
+    display: flex;
+    flex-direction: column;
+    height: 90dvh;
+}
+
+.employee-btn{
+    width: 100%;
+    display: flex;
+    justify-content: end;
+}
