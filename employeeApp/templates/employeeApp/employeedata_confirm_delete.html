@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container mt-5 d-flex justify-content-center">
+<h2 class="mx-auto">Employee Details</h2>
+</div>
+<div class="card mx-auto mt-5" style="width: 25rem;">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item"><b>Employee Id:</b> {{ EmployeeDelete.employee_id }}</li>
+      <li class="list-group-item"><b>Employee Name:</b> {{ EmployeeDelete.employee_name }}</li>
+      <li class="list-group-item"><b>Positon :</b> {{ EmployeeDelete.position }}</li>
+      <li class="list-group-item d-flex justify-content-center">
+        <button type="button" class="btn m-2 btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+            Confirm Delete
+        </button>
+        <a href="{% url 'empapp:list' %}" type="button" class="btn m-2 btn-warning">
+            Employees List
+        </a>
+      </li>
+    </ul>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Confirm Delete</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Do you want to delete {{ EmployeeDelete.employee_name }} ? 
+        </div>
+        <div class="modal-footer">
+            <form method="POST">
+                {% csrf_token %}
+                <input class="btn btn-danger" type="submit" value="Delete">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </form>
+        </div>
+      </div>
+    </div>
+</div>
+
+{% endblock %}
