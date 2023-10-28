@@ -4,5 +4,5 @@ from employeeApp import views
 app_name = 'empapp'
 
 urlpatterns = [
-    path('',views.index,name='home'),
+    path('',views.EmployeeList.as_view(),name='list'),
 ]

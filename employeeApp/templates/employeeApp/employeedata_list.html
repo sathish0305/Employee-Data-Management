@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container mt-3">
+    <div class="employee-btn">
+        <a href="" class="btn btn-primary">
+            <i class="bi bi-plus-circle">Add Employee</i>
+        </a>
+    </div>
+    <table class="table mt-3 table-hover border-primary" style="text-align: center;">
+        <thead>
+            <tr>
+              <th scope="col">Employee ID</th>
+              <th scope="col">Employee Name</th>
+              <th scope="col">DOB</th>
+              <th scope="col">Email</th>
+              <th scope="col">Phone</th>
+              <th scope="col">Address</th>
+              <th scope="col">Hire Date</th>
+              <th scope="col">Position</th>
+              <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody class="table-group-divider">
+            {% for employee in Employeelist %}
+                <tr>
+                <th scope="row">{{ employee.employee_id }}</th>
+                <td>{{ employee.employee_name }}</td>
+                <td>{{ employee.date_of_birth }}</td>
+                <td>{{ employee.email }}</td>
+                <td>{{ employee.phone }}</td>
+                <td>{{ employee.address }}</td>
+                <td>{{ employee.hire_date }}</td>
+                <td>{{ employee.position }}</td>
+                <td>
+                    <button type="button" class="btn btn-warning">
+                        <i class="bi bi-pencil-square"></i>
+                    </button>
+                    <button type="button" class="btn btn-danger">
+                        <i class="bi bi-trash"></i>
+                    </button>
+                </td>
+                </tr>   
+            {% endfor %}
+        </tbody>
+    </table>
+</div>  
+
+{% endblock %}
