@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<div class="container mt-3">
+<div class="d-flex mx-auto mt-3" style="width:90%; flex-direction:column;">
     <div class="employee-btn">
         <a href="{% url 'empapp:create' %}" class="btn btn-primary">
             <i class="bi bi-plus-circle">Add Employee</i>
@@ -34,9 +34,9 @@
                 <td>{{ employee.hire_date }}</td>
                 <td>{{ employee.position }}</td>
                 <td>
-                    <button type="button" class="btn btn-warning">
+                    <a href="{% url 'empapp:update'  pk=employee.pk %}" class="btn btn-warning">
                         <i class="bi bi-pencil-square"></i>
-                    </button>
+                    </a>
                     <button type="button" class="btn btn-danger">
                         <i class="bi bi-trash"></i>
                     </button>
