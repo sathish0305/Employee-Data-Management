@@ -8,45 +8,49 @@
             <i class="bi bi-plus-circle">Add Employee</i>
         </a>
     </div>
-    <table class="table mt-3 table-hover border-primary" style="text-align: center;">
-        <thead>
-            <tr>
-              <th scope="col">Employee ID</th>
-              <th scope="col">Employee Name</th>
-              <th scope="col">DOB</th>
-              <th scope="col">Email</th>
-              <th scope="col">Phone</th>
-              <th scope="col">Address</th>
-              <th scope="col">Hire Date</th>
-              <th scope="col">Position</th>
-              <th scope="col">Actions</th>
-            </tr>
-        </thead>
-        <tbody class="table-group-divider">
-            {% for employee in Employeelist %}
-                <tr>
-                <th scope="row">{{ employee.employee_id }}</th>
-                <td>{{ employee.employee_name }}</td>
-                <td>{{ employee.date_of_birth }}</td>
-                <td>{{ employee.email }}</td>
-                <td>{{ employee.phone }}</td>
-                <td>{{ employee.address }}</td>
-                <td>{{ employee.hire_date }}</td>
-                <td>{{ employee.position }}</td>
-                <td>
-                    <a href="{% url 'empapp:update'  pk=employee.pk %}" class="btn btn-warning">
-                        <i class="bi bi-pencil-square"></i>
-                    </a>
-                    <a type="button" href="{% url 'empapp:delete' pk=employee.pk %}"   class="btn btn-danger">
-                        <i class="bi bi-trash"></i>
-                    </a>
-                </td>
-                </tr>   
-            {% endfor %}
-        </tbody>
-    </table>
 
+    <div class="table-responsive">
+        <table class="table mt-3 table-hover border-primary" style="text-align: center;">
+            <thead>
+                <tr>
+                  <th scope="col">Employee ID</th>
+                  <th scope="col">Employee Name</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">Phone</th>
+                  <th scope="col">Hire Date</th>
+                  <th scope="col">Position</th>
+                  <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody class="table-group-divider">
+                {% for employee in Employeelist %}
+                <tr>
+                    <th scope="row">{{ employee.employee_id }}</th>
+                    <td>{{ employee.employee_name }}</td>
+                    <td>{{ employee.email }}</td>
+                    <td>{{ employee.phone }}</td>
+                    <td>{{ employee.hire_date }}</td>
+                    <td>{{ employee.position }}</td>
+                    <td>
+                        <a href="" class="btn btn-success">
+                            <i class="bi bi-info-circle"></i>
+                        </i>
+                        </a>
+                        <a href="{% url 'empapp:update'  pk=employee.pk %}" class="btn btn-warning">
+                            <i class="bi bi-pencil-square"></i>
+                        </a>
+                        <a type="button" href="{% url 'empapp:delete' pk=employee.pk %}"   class="btn btn-danger">
+                            <i class="bi bi-trash"></i>
+                        </a>
+                    </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
     
+
+
     <!-- pagination -->
     <nav>
         {% if page_obj.has_other_pages %}

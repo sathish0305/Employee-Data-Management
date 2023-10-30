@@ -24,6 +24,11 @@ class EmployeeCreateView(CreateView):
     def form_valid(self, form):
         # Check if the name already exists in the database
         employee_id = form.cleaned_data['employee_id']
+        phone_number = form.cleaned_data['phone']
+        if len(str(phone_number)) != 10:
+            form.add_error('phone','Enter Valid Phone Number')
+            return self.form_invalid(form)
+        
         if EmployeeData.objects.filter(employee_id=employee_id).exists():
             form.add_error('employee_id', 'This EmployeeId already exists.')
             return self.form_invalid(form)
