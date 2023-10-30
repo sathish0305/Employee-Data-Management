@@ -5,6 +5,8 @@ from django.views.generic import ListView,CreateView,UpdateView,DeleteView
 from employeeApp.models import EmployeeData
 from django.urls import reverse_lazy
 
+from django.core.paginator import Paginator
+
 # Create your views here.
 def index(request):
     return render(request,'index.html')
@@ -13,6 +15,7 @@ class EmployeeList(ListView):
     context_object_name = 'Employeelist'
     model = EmployeeData
     ordering=['employee_id']
+    paginate_by = 8
 
 class EmployeeCreateView(CreateView):
     model = EmployeeData
