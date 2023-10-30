@@ -3,10 +3,3 @@
     display: flex;
     justify-content: end;
 }
-
-.index-page{
-    height: 90dvh;
-    border: 1px solid black;
-    display: flex;
-    justify-content: space-around;
-}

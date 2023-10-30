@@ -18,6 +18,14 @@ class EmployeeCreateView(CreateView):
     model = EmployeeData
     fields = '__all__'
 
+    def form_valid(self, form):
+        # Check if the name already exists in the database
+        employee_id = form.cleaned_data['employee_id']
+        if EmployeeData.objects.filter(employee_id=employee_id).exists():
+            form.add_error('employee_id', 'This EmployeeId already exists.')
+            return self.form_invalid(form)
+        return super().form_valid(form)
+    
 class EmployeeUpdateView(UpdateView):
     model = EmployeeData
     fields = '__all__'
