@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+<div class="container d-flex align-items-center flex-column" style="height:91dvh">
+    <h3 class="mt-5">Employee Details</h3>
+    <div class="card mx-auto" style="width: 700px;">
+        <div class="row g-0">
+          <div class="col-md-4 d-flex align-items-center">
+            <img src="{% static 'images/manager.png' %}" class=" img-fluid rounded-start" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">Employee Name : {{ employeeDetail.employee_name }}</h5>
+              <p class="card-text">Employee Id : {{ employeeDetail.employee_id }}</p>
+              <p class="card-text">Date of Birth : {{ employeeDetail.date_of_birth }}</p>
+              <p class="card-text">Email : {{ employeeDetail.email }}</p>
+              <p class="card-text">Phone : {{ employeeDetail.phone }}</p>
+              <p class="card-text">Address: {{ employeeDetail.address }}</p>
+              <p class="card-text">Hire Date: {{ employeeDetail.hire_date }}</p>
+              <p class="card-text">Employee Position: {{ employeeDetail.position }}</p>
+            </div>
+          </div>
+        </div>
+      </div>    
+</div>
+
+{% endblock %}

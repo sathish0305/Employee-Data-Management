@@ -1,7 +1,7 @@
 from typing import Any
 from django.db.models.query import QuerySet
 from django.shortcuts import render
-from django.views.generic import ListView,CreateView,UpdateView,DeleteView
+from django.views.generic import ListView,CreateView,UpdateView,DeleteView,DetailView
 from employeeApp.models import EmployeeData
 from django.urls import reverse_lazy
 
@@ -42,3 +42,7 @@ class EmployeeDeleteView(DeleteView):
     context_object_name = 'EmployeeDelete'
     model = EmployeeData
     success_url = reverse_lazy('empapp:list')
+
+class EmployeeDetailView(DetailView):
+    context_object_name = 'employeeDetail'
+    model = EmployeeData
