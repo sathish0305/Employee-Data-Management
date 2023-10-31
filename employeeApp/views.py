@@ -1,11 +1,11 @@
-from typing import Any
 from django.db.models.query import QuerySet
 from django.shortcuts import render
 from django.views.generic import ListView,CreateView,UpdateView,DeleteView,DetailView
 from employeeApp.models import EmployeeData
 from django.urls import reverse_lazy
-
-from django.core.paginator import Paginator
+from django.http import HttpResponse
+from django.contrib.auth import authenticate,login,logout
+from django.shortcuts import redirect
 
 # Create your views here.
 def index(request):
@@ -33,7 +33,7 @@ class EmployeeCreateView(CreateView):
             form.add_error('employee_id', 'This EmployeeId already exists.')
             return self.form_invalid(form)
         return super().form_valid(form)
-    
+
 class EmployeeUpdateView(UpdateView):
     model = EmployeeData
     fields = '__all__'
@@ -46,3 +46,6 @@ class EmployeeDeleteView(DeleteView):
 class EmployeeDetailView(DetailView):
     context_object_name = 'employeeDetail'
     model = EmployeeData
+
+def user_login(request):
+    return render(request,'login.html')
