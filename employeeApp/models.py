@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from django.contrib.auth.models import AbstractUser
 
 # Create your models here.
 class EmployeeData(models.Model):
@@ -17,3 +18,7 @@ class EmployeeData(models.Model):
     
     def get_absolute_url(self):
         return reverse('empapp:list')
+      
+class CustomUser(AbstractUser):
+    # Add any additional fields you need for your user model here
+    pass

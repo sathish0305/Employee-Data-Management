@@ -3,9 +3,7 @@ from django.shortcuts import render
 from django.views.generic import ListView,CreateView,UpdateView,DeleteView,DetailView
 from employeeApp.models import EmployeeData
 from django.urls import reverse_lazy
-from django.http import HttpResponse
-from django.contrib.auth import authenticate,login,logout
-from django.shortcuts import redirect
+
 
 # Create your views here.
 def index(request):
@@ -46,6 +44,3 @@ class EmployeeDeleteView(DeleteView):
 class EmployeeDetailView(DetailView):
     context_object_name = 'employeeDetail'
     model = EmployeeData
-
-def user_login(request):
-    return render(request,'login.html')
